@@ -1,0 +1,59 @@
+/* styles.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: transparent;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
+}
+
+.time-display {
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding-left: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#hours,
+#minutes,
+#seconds {
+  font-variant-numeric: tabular-nums;
+}
+
+#seconds {
+  color: #000000;
+  text-shadow: 0 0 15px rgb(255, 255, 255);
+}
+
+.space {
+  margin: 0 15px;
+}
+
+.date-display {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #cccccc;
+  letter-spacing: 1px;
+  padding-left: 1px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+}

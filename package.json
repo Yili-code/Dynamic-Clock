@@ -1,0 +1,19 @@
+{
+  "name": "my-clock",
+  "version": "1.0.0",
+  "description": "Just a clock",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "Electron",
+    "clock",
+    "time"
+  ],
+  "author": "Me",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^41.2.0"
+  }
+}

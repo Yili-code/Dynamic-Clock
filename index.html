@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="./styles.css" rel="stylesheet">
+  <title>Dynamic Clock</title>
+</head>
+
+<body>
+  <div class="time-display">  
+    <span id="hours">00</span><span class="space"> </span><span id="minutes">00</span><span class="space"> </span><span id="seconds">00</span>
+  </div>
+  <div class="date-display" id="date">Loading...</div>
+  <script src="./renderer.js"></script>
+</body>
+
+</html>
