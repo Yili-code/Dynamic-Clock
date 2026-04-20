@@ -1,7 +1,7 @@
 # Just a clock
 
 ## How to run
-1. 
+1. Terminal / Powershell
 ``` 
 cd "Your Project Path"
 
