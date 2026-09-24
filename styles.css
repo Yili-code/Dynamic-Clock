@@ -59,3 +59,35 @@ body {
 }
 
 #close:hover, #close:focus-visible { opacity: 1; outline: 2px solid white; }
+
+[hidden] { display: none !important; }
+.suffix { font-size: .3em; margin-left: .35em; }
+
+.settings {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  font-size: 13px;
+  -webkit-app-region: no-drag;
+}
+
+.settings summary {
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, .55);
+  cursor: pointer;
+}
+
+.settings-panel {
+  display: grid;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 10px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, .85);
+}
+
+.settings-panel label { white-space: nowrap; }
+.settings-panel select { margin-left: 6px; }
+.settings :focus-visible { outline: 2px solid white; }

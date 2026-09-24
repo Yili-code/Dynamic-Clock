@@ -11,10 +11,19 @@
   <button id="close" type="button" aria-label="Close clock" title="Close clock">×</button>
   <main class="clock" aria-label="Local time and date">
     <div class="time-display" role="timer" aria-label="Time">
-      <span id="hours">00</span><span class="separator">:</span><span id="minutes">00</span><span class="separator">:</span><span id="seconds">00</span>
+      <span id="hours">00</span><span class="separator">:</span><span id="minutes">00</span><span class="separator seconds-separator">:</span><span id="seconds">00</span><span id="suffix" class="suffix"></span>
     </div>
     <div class="date-display" id="date">Loading…</div>
   </main>
+  <details class="settings">
+    <summary>Settings</summary>
+    <div class="settings-panel">
+      <label><input type="checkbox" id="hour12"> 12-hour time</label>
+      <label><input type="checkbox" id="showSeconds" checked> Show seconds</label>
+      <label>Time zone <select id="timeZone"><option value="local">Local</option><option value="UTC">UTC</option></select></label>
+    </div>
+  </details>
+  <script src="./clock-core.js"></script>
   <script src="./renderer.js"></script>
 </body>
 </html>
