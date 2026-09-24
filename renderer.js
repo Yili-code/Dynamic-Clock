@@ -1,42 +1,35 @@
-/**
- * This file is loaded via the <script> tag in the index.html file and will
- * be executed in the renderer process for that window. No Node.js APIs are
- * available in this process because `nodeIntegration` is turned off and
- * `contextIsolation` is turned on. Use the contextBridge API in `preload.js`
- * to expose Node.js functionality from the main process.
- */
+const weekdayFormatter = new Intl.DateTimeFormat('en-US', { weekday: 'short' });
 
-let lastDateString = '';
-
-window.addEventListener('DOMContentLoaded', () => {
-})
-
-
-function updateClock() {
-  const now = new Date();
-  
-  const hours = String(now.getHours()).padStart(2, '0');
-  const minutes = String(now.getMinutes()).padStart(2, '0');
-  const seconds = String(now.getSeconds()).padStart(2, '0');
-  
-  document.getElementById('hours').textContent = hours;
-  document.getElementById('minutes').textContent = minutes;
-  document.getElementById('seconds').textContent = seconds;
-  
-  const day = String(now.getDate()).padStart(2, '0');
-  const month = String(now.getMonth() + 1).padStart(2, '0');
-  const year = String(now.getFullYear()).slice(-2);
-  const weekday = new Intl.DateTimeFormat('en-US', { weekday: 'short' }).format(now);
-  const currentDateString = `${day} / ${month} ${year} ${weekday}`;
-  
-  if (currentDateString !== lastDateString) {
-    document.getElementById('date').textContent = currentDateString;
-    lastDateString = currentDateString;
-  }
-  
-  const msUntilNextSecond = 1000 - now.getMilliseconds();
-  setTimeout(updateClock, msUntilNextSecond);
+function formatClock(date) {
+  const twoDigits = value => String(value).padStart(2, '0');
+  return {
+    hours: twoDigits(date.getHours()),
+    minutes: twoDigits(date.getMinutes()),
+    seconds: twoDigits(date.getSeconds()),
+    date: `${twoDigits(date.getDate())} / ${twoDigits(date.getMonth() + 1)} / ${date.getFullYear()} ${weekdayFormatter.format(date)}`
+  };
 }
 
-// Start the clock
-updateClock();
+function startClock(doc = document, schedule = setTimeout, now = () => new Date()) {
+  const fields = Object.fromEntries(['hours', 'minutes', 'seconds', 'date'].map(id => [id, doc.getElementById(id)]));
+
+  function tick() {
+    const current = now();
+    const formatted = formatClock(current);
+    for (const [key, element] of Object.entries(fields)) {
+      if (element.textContent !== formatted[key]) element.textContent = formatted[key];
+    }
+    schedule(tick, 1000 - current.getMilliseconds());
+  }
+
+  tick();
+}
+
+if (typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', () => {
+    startClock();
+    document.getElementById('close').addEventListener('click', () => window.close());
+  });
+}
+
+if (typeof module !== 'undefined') module.exports = { formatClock, startClock };

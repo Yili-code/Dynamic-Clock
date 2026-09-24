@@ -1,27 +1,29 @@
-# GlassClock
-A transparent, minimalist desktop clock that preserves your workspace aesthetics.
+# Dynamic Clock
 
-GlassClock is a lightweight desktop utility designed for users who value focus and wallpaper aesthetics. It provides a real-time clock overlay with a Transparent UI, ensuring your carefully curated desktop background remains the protagonist.
+A small, transparent desktop clock built with Electron. Drag anywhere on the clock to move it; use the × button to close it. The time follows your computer's local time zone and updates every second.
 
-<img width="1700" height="860" alt="image" src="https://github.com/user-attachments/assets/86fdc52b-7ddb-4972-a9df-6c974ec9f1d3" />
+## Requirements
 
+- Node.js 22 or later and npm
+- Windows, macOS, or Linux desktop session
 
-## How to run
-1. Terminal / Powershell
-``` 
-cd "Your Project Path"
+## Run locally
 
-npm install 
-
+```sh
+git clone https://github.com/Yili-code/Dynamic-Clock.git
+cd Dynamic-Clock
+npm ci
 npm start
-``` 
-
-2. create a bat file named "run.bat" in the same directory as the project.
-then add the following content:
-```bat
-@echo off
-
-powershell -WindowStyle Hidden -Command "Set-Location 'Your Project Path'; npm start"
 ```
-replace 'Your Project Path' with the actual path to your project.
 
+Run `npm test` to check the clock formatting and second-boundary updates. Run `npm run check` for syntax checks and tests.
+
+The window is transparent, so visibility depends on your wallpaper. On Linux, transparency and dragging depend on your window manager. Close using the × button or the operating system's window shortcut.
+
+## Project structure
+
+- `main.js`: desktop window lifecycle and security settings
+- `index.html` and `styles.css`: clock layout and appearance
+- `renderer.js`: local time formatting and display updates
+
+Licensed under CC0-1.0 (see `package.json`).
