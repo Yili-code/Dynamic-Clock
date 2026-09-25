@@ -1,7 +1,7 @@
 {
   "name": "glassclock",
   "version": "1.0.0",
-  "description": "A transparent, minimalist desktop clock built with Electron",
+  "description": "Transparent desktop clock for Windows, macOS and Linux with local/UTC time and customizable display",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -10,9 +10,12 @@
   },
   "keywords": [
     "electron",
-    "clock",
-    "desktop",
-    "transparent"
+    "desktop-clock",
+    "transparent-clock",
+    "digital-clock",
+    "clock-widget",
+    "utc-clock",
+    "desktop-widget"
   ],
   "author": "Yili",
   "license": "CC0-1.0",
